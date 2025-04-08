@@ -4,6 +4,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: [
     'bulma',
+    // CSS file in the project
     '~/assets/css/main.css',
+    // SCSS file in the project
+    '@fortawesome/fontawesome-free/css/all.css',
   ]
 })
