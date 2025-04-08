@@ -1,5 +1,13 @@
 <script setup>
 const cartItem = ref(1) //Liczba produktów w koszyku, wartość początkowa to 1 
+const emit = defineEmits(['toogle-modal']);
+
+const handleClick = () => {
+  emit('toogle-modal', {
+    title: 'Modal Title',
+    text: 'This is the content of the modal.'
+  })
+}
 </script>
 
 <template>
@@ -58,6 +66,9 @@ const cartItem = ref(1) //Liczba produktów w koszyku, wartość początkowa to 
               <span>Koszyk ({{ cartItem }})</span>
             </span>
           </NuxtLink>
+          <button class="navbar-item custom-cart-button" @click="handleClick">
+            <span>Open modal</span>
+        </button>
         </div>
     </div>
     </nav>

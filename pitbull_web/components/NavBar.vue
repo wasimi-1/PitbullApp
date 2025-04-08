@@ -1,12 +1,16 @@
 <script setup>
 const searchQuery = ref(''); // Zmienna do przechowywania zapytania wyszukiwania
+const showLogo = ref(false);
+const enableDisableLogo = () => {
+    showLogo.value = !showLogo.value;
+}
 </script>
 
 <template>
      <nav class="navbar">
         <div class="container is-flex is-align-items-center is-justify-content-space-between">
             <div class="navbar-logo">
-                <span class="logo-text">LOGO</span>
+                <span class="logo-text" v-show="showLogo">LOGO</span>
             </div>
             <div class="navbar-menu is-flex is-align-items-center">
                 <a class="navbar-item">SALE UP TO -60%!</a>
@@ -19,7 +23,7 @@ const searchQuery = ref(''); // Zmienna do przechowywania zapytania wyszukiwania
             </div>
             <div class="navbar-search">
                 <input v-model="searchQuery" type="text" placeholder="Szukaj" class="search-input" />
-                <button class="search-button search-icon">
+                <button class="search-button search-icon" @click="enableDisableLogo">
                         <i class="fas fa-search"></i>
                 </button>
             </div>
